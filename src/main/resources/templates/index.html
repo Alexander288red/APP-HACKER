@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hacker Messages</title>
+    <style>
+        body {
+            background: black;
+            color: green;
+            font-family: monospace;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .matrix {
+            font-family: monospace;
+            color: lime;
+            overflow: hidden;
+        }
+
+        .message {
+            margin: 20px;
+            padding: 15px;
+            border: 1px solid lime;
+        }
+
+        a {
+            color: green;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hacker Messages</h1>
+    <div class="matrix" th:each="message : ${messages}">
+        <div class="message">
+            <p><strong>Texto:</strong> <span th:text="${message.text}"></span></p>
+            <p><strong>Autor:</strong> <span th:text="${message.author}"></span></p>
+        </div>
+    </div>
+    <a href="/messages/new">Crear nuevo mensaje</a>
+</body>
+</html>

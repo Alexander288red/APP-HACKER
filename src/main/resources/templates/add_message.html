@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Nuevo Mensaje</title>
+    <style>
+        body {
+            background: black;
+            color: lime;
+            font-family: monospace;
+        }
+
+        form {
+            margin: 0 auto;
+            width: 50%;
+            padding: 20px;
+            border: 1px solid green;
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        label, input, textarea {
+            display: block;
+            margin: 10px 0;
+            width: 100%;
+        }
+
+        button {
+            background: lime;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-family: monospace;
+        }
+
+        button:hover {
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Crear Nuevo Mensaje</h1>
+    <form th:action="@{/messages}" th:object="${message}" method="post">
+        <label for="text">Texto:</label>
+        <textarea id="text" th:field="*{text}" required></textarea>
+
+        <label for="author">Autor:</label>
+        <input id="author" type="text" th:field="*{author}" required/>
+
+        <button type="submit">Guardar</button>
+    </form>
+</body>
+</html>
